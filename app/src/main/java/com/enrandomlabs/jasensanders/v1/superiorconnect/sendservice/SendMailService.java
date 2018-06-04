@@ -1,4 +1,4 @@
-package com.enrandomlabs.jasensanders.v1.superiorconnect.SendService;
+package com.enrandomlabs.jasensanders.v1.superiorconnect.sendservice;
 
 import android.app.IntentService;
 import android.content.Context;

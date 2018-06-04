@@ -20,8 +20,8 @@
         </activity>
 
         <service
-            android:name=".SendService.SendMailService"
-            android:exported="false"></service>
+            android:name=".sendservice.SendMailService"
+            android:exported="false"/>
     </application>
 
 </manifest>
