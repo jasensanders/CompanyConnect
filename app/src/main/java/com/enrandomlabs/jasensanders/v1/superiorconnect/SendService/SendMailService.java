@@ -3,99 +3,192 @@ package com.enrandomlabs.jasensanders.v1.superiorconnect.SendService;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import com.enrandomlabs.jasensanders.v1.superiorconnect.MainActivity;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
  * a service on a separate handler thread.
  * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
  * helper methods.
  */
 public class SendMailService extends IntentService {
-    // TODO: Rename actions, choose action names that describe tasks that this
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String ACTION_FOO = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.action.FOO";
-    private static final String ACTION_BAZ = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.action.BAZ";
 
-    // TODO: Rename parameters
-    private static final String EXTRA_PARAM1 = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.extra.PARAM1";
-    private static final String EXTRA_PARAM2 = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.extra.PARAM2";
+    //Error Log Tags
+    private static final String CLASS_NAME = SendMailService.class.getSimpleName();
+    private static final String ESTIMATE_ERROR = CLASS_NAME + "_Estimate_Error";
+    private static final String NOTE_ERROR = CLASS_NAME + "_Note_Error";
+    private static final String E_WASTE_ERROR = CLASS_NAME + "_E_Waste_Error";
+
+    //Action Flag Constants
+    private static final String ACTION_NOTE = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.action.NOTE";
+    private static final String ACTION_ESTIMATE = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.action.REQUEST_ESTIMATE";
+    private static final String ACTION_E_WASTE = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.action.REQUEST_E_WASTE";
+
+    //Data Keys
+    private static final String EXTRA_NAME = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.extra.NAME";
+    private static final String EXTRA_DETAILS = "com.enrandomlabs.jasensanders.v1.superiorconnect.SendService.extra.DETAILS";
+
+    //Response Strings
+    private static final String RESULT_OK = "OK";
+    private static final String RESULT_ERROR = "ERROR";
+    private static final String RESPONSE_TYPE_NOTE = "NOTE";
+    private static final String RESPONSE_TYPE_ESTIMATE = "ESTIMATE";
+    private static final String RESPONSE_TYPE_E_WASTE = "E_WASTE";
+    private static final String FLAG_SENT = "SENT";
+
 
     public SendMailService() {
         super("SendMailService");
     }
 
     /**
-     * Starts this service to perform action Foo with the given parameters. If
+     * Starts this service to perform action Send Note with the given parameters. If
      * the service is already performing a task this action will be queued.
      *
      * @see IntentService
      */
-    // TODO: Customize helper method
-    public static void startActionFoo(Context context, String param1, String param2) {
+
+    public static void startActionSendNote(Context context, String name, String[] details) {
         Intent intent = new Intent(context, SendMailService.class);
-        intent.setAction(ACTION_FOO);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
+        intent.setAction(ACTION_NOTE);
+        intent.putExtra(EXTRA_NAME, name);
+        intent.putExtra(EXTRA_DETAILS, details);
         context.startService(intent);
     }
 
     /**
-     * Starts this service to perform action Baz with the given parameters. If
+     * Starts this service to perform action Request Estimate with the given parameters. If
      * the service is already performing a task this action will be queued.
      *
      * @see IntentService
      */
-    // TODO: Customize helper method
-    public static void startActionBaz(Context context, String param1, String param2) {
+
+    public static void startActionRequestEstimate(Context context, String name, String[] details) {
         Intent intent = new Intent(context, SendMailService.class);
-        intent.setAction(ACTION_BAZ);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
+        intent.setAction(ACTION_ESTIMATE);
+        intent.putExtra(EXTRA_NAME, name);
+        intent.putExtra(EXTRA_DETAILS, details);
         context.startService(intent);
+    }
+
+    /**
+     * Starts this service to perform action Request E-waste Removal with the given parameters. If
+     * the service is already performing a task this action will be queued.
+     *
+     * @see IntentService
+     */
+
+    public static void startActionRequestEwasteRemoval(Context context, String name, String[] details) {
+        Intent intent = new Intent(context, SendMailService.class);
+        intent.setAction(ACTION_E_WASTE);
+        intent.putExtra(EXTRA_NAME, name);
+        intent.putExtra(EXTRA_DETAILS, details);
+        context.startService(intent);
+
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
+            final String name = intent.getStringExtra(EXTRA_NAME);
+            final String[] details = intent.getStringArrayExtra(EXTRA_DETAILS);
             final String action = intent.getAction();
-            if (ACTION_FOO.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
+            
+            if (ACTION_NOTE.equals(action)) {
+                handleActionNote(name, details);
+            } else if (ACTION_ESTIMATE.equals(action)) {
+                handleActionEstimate(name, details);
+            }else if (ACTION_E_WASTE.equals(action)) {
+                handleActionEwaste(name, details);
             }
         }
     }
 
     /**
-     * Handle action Foo in the provided background thread with the provided
+     * Handle action Send Note in the provided background thread with the provided
      * parameters.
      */
-    private void handleActionFoo(String param1, String param2) {
-        // TODO: Handle action Foo
+    //Details[] format: [contactRequested: yes or No, Email Address, Telephone Number, Fax Number, Message]
+    private void handleActionNote(String name, String[] details) {
+
+        //Assemble message and send
+        final String body = assembleMessage(name, MailContract.NOTE_ANNOUNCEMENT, details);
         try {
-            MailSender sender = new MailSender("username@gmail.com", "password");
-            sender.sendMail("This is Subject",
-                    "This is Body",
-                    "user@gmail.com",
-                    "user@yahoo.com");
+            MailSender sender = new MailSender(MailContract.USERNAME, MailContract.PASSWORD);
+            sender.sendMail(MailContract.NOTE_SUBJECT,
+                    body,
+                    MailContract.USERNAME,
+                    MailContract.NOTE_EMAIL_ACCNT);
+            String[] response = new String[]{RESULT_OK, RESPONSE_TYPE_NOTE, FLAG_SENT};
+            sendResponseBack(response);
         } catch (Exception e) {
-            Log.e("SendMail", e.getMessage(), e);
+            Log.e(NOTE_ERROR, e.getMessage(), e);
+            String[] errorResponse = new String[]{RESULT_ERROR, RESPONSE_TYPE_NOTE, e.getMessage()};
+            sendResponseBack(errorResponse);
         }
-        throw new UnsupportedOperationException("Not yet implemented");
+
     }
 
     /**
-     * Handle action Baz in the provided background thread with the provided
+     * Handle action Send estimate Request in the provided background thread with the provided
      * parameters.
      */
-    private void handleActionBaz(String param1, String param2) {
-        // TODO: Handle action Baz
-        throw new UnsupportedOperationException("Not yet implemented");
+    private void handleActionEstimate(String name, String[] details) {
+
+        //Assemble message and send
+        final String body = assembleMessage(name, MailContract.ESTIMATE_ANNOUNCEMENT, details);
+        try {
+            MailSender sender = new MailSender(MailContract.USERNAME, MailContract.PASSWORD);
+            sender.sendMail(MailContract.ESTIMATE_SUBJECT,
+                    body,
+                    MailContract.USERNAME,
+                    MailContract.ESTIMATE_EMAIL_ACCNT);
+            String[] response = new String[]{RESULT_OK, RESPONSE_TYPE_ESTIMATE, FLAG_SENT};
+            sendResponseBack(response);
+        } catch (Exception e) {
+            Log.e(ESTIMATE_ERROR, e.getMessage(), e);
+            String[] errorResponse = new String[]{RESULT_ERROR, RESPONSE_TYPE_ESTIMATE, e.getMessage()};
+            sendResponseBack(errorResponse);
+        }
+    }
+
+    /**
+     * Handle action Send E-waste Request in the provided background thread with the provided
+     * parameters.
+     */
+    private void handleActionEwaste(String name, String[] details) {
+
+        //Assemble message and send
+        final String body = assembleMessage(name, MailContract.E_WASTE_ANNOUNCEMENT, details);
+        try {
+            MailSender sender = new MailSender(MailContract.USERNAME, MailContract.PASSWORD);
+            sender.sendMail(MailContract.EWASTE_SUBJECT,
+                    body,
+                    MailContract.USERNAME,
+                    MailContract.E_WASTE_EMAIL_ACCNT);
+            String[] response = new String[]{RESULT_OK, RESPONSE_TYPE_E_WASTE, FLAG_SENT};
+            sendResponseBack(response);
+        } catch (Exception e) {
+            Log.e(E_WASTE_ERROR, e.getMessage(), e);
+            String[] errorResponse = new String[]{RESULT_ERROR, RESPONSE_TYPE_E_WASTE, e.getMessage()};
+            sendResponseBack(errorResponse);
+        }
+    }
+
+    //String Response format:  ["OK or ERROR","Type: NOTE, E_WASTE, or ESTIMATE", "Error Message" or "SENT"]
+    private void sendResponseBack(String[] resultsData){
+        Intent messageIntent = new Intent(MainActivity.SERVICE_EVENT_SEND);
+        messageIntent.putExtra(MainActivity.SERVICE_EXTRA_RESPONSE, resultsData);
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
+    }
+
+    private String assembleMessage(String name, String announcement, String[] param2){
+        String message = name + announcement + "\n" + "Contact Requested: " + param2[0] + "\n"
+                + "Email: " + param2[1] + "\n" + "Telephone: " + param2[2] + "\n" + "Fax: " +
+                param2[3] + "\n" + "Message: " + "\n\n" + param2[4];
+        return message;
     }
 }

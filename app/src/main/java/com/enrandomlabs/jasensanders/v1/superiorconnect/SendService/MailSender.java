@@ -1,5 +1,7 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect.SendService;
 
+import android.util.Log;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +19,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailSender extends javax.mail.Authenticator {
-    private String mailhost = "smtp.gmail.com";
+    private static final String LOG_TAG = MailSender.class.getSimpleName();
+    private String mailhost = MailContract.SEND_MAIL_SERVER;
     private String user;
     private String password;
     private Session session;
@@ -61,6 +64,7 @@ public class MailSender extends javax.mail.Authenticator {
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
         }catch(Exception e){
+            Log.e(LOG_TAG, e.getMessage());
 
         }
     }

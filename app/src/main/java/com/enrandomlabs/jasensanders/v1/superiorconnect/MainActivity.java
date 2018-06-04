@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String CLASS_NAME = MainActivity.class.getSimpleName();
+    public static final String SERVICE_EVENT_SEND = "SERVICE_EVENT_SEND_" + CLASS_NAME;
+    public static final String SERVICE_EXTRA_RESPONSE = "SERVICE_EVENT_RESPONSE_" + CLASS_NAME;
 
     private TextView mTextMessage;
 
