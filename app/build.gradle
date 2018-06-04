@@ -16,7 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildTypes.each{
+    buildTypes.each {
         it.buildConfigField 'String', 'SEND_MAIL_SERVER', SuperiorMailServer
         it.buildConfigField 'String', 'SEND_MAIL_USERNAME', SuperiorMailUsername
         it.buildConfigField 'String', 'SEND_MAIL_PW', SuperiorMailPW
@@ -35,6 +35,8 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:27.1.1'
     implementation 'com.sun.mail:android-mail:1.6.1'
     implementation 'com.sun.mail:android-activation:1.6.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation'com.android.support:cardview-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
