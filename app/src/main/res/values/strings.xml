@@ -2,8 +2,26 @@
     <string name="app_name">Superior Janitorial Connect</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Connect</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Information</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
+    <string name="about_superior_janitorial_fragment_title">About Superior Janitorial</string>
+    <string name="about_superior_janitorial_fragment_text">Superior Janitorial Started</string>
+
+    <string name="connect_fragment_button_leave_note">Leave a Note for Janitors</string>
+    <string name="connect_fragment_button_leave_note_restrictions">Some limitations apply.</string>
+
+    <string name="connect_fragment_button_estimate_request">Request Estimate</string>
+    <string name="connect_fragment_button_estimate_request_subtext">Select the services that are right for you!</string>
+
+    <string name="connect_fragment_button_e_waste_request">E-Waste Removal Request</string>
+    <string name="connect_fragment_button_e_waste_request_restrictions">Some limitations apply.</string>
+
+    <string name="main_fragment_title_welcome_card">Welcome to Superior Connect!</string>
+    <string name="main_fragment_text_welcome_card">At Superior Janitorial Systems we pride ourselves on</string>
+
+    <string name="main_fragment_title_howto_card">How to Use This App:</string>
+    <string name="main_fragment_text_howto_card">This app is primarily for connecting with us</string>
+
+    <string name="main_fragment_title_about_us_card">Who is Superior Janitorial?</string>
+    <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a cleaning service located in the South Bay Area in San Jose, CA.</string>
+    </resources>

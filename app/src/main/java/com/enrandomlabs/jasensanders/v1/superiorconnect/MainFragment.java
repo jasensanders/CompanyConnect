@@ -1,19 +1,21 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.transition.TransitionManager;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
+ *
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
@@ -27,7 +29,18 @@ public class MainFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private CardView mWelcomeCard;
+    private CardView mHowtoCard;
+    private CardView mAboutUsCard;
+
+    private TextView mWelcomeDetails;
+    private TextView mHowToDetails;
+    private TextView mAboutUsDetails;
+
+    private LinearLayout mWelcomeContainer;
+    private LinearLayout mHowToContainer;
+    private LinearLayout mAboutContainer;
+
 
     public MainFragment() {
         // Required empty public constructor
@@ -54,55 +67,110 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View root = inflater.inflate(R.layout.fragment_main, container, false);
+
+        //Get references
+        mWelcomeCard = root.findViewById(R.id.cardviewWelcome);
+        mHowtoCard = root.findViewById(R.id.cardviewHowto);
+        mAboutUsCard = root.findViewById(R.id.cardviewAbout);
+
+        mWelcomeDetails = root.findViewById(R.id.cardviewWelcomeDetails);
+        mHowToDetails = root.findViewById(R.id.cardviewHowtoDetails);
+        mAboutUsDetails = root.findViewById(R.id.cardviewAboutDetails);
+
+        mWelcomeContainer = root.findViewById(R.id.welcomeContainer);
+        mHowToContainer = root.findViewById(R.id.howToContainer);
+        mAboutContainer = root.findViewById(R.id.aboutContainer);
+
+        //Set Listeners
+        mWelcomeCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expand(v);
+            }
+        });
+
+        mHowtoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expand(v);
+            }
+        });
+
+        mAboutUsCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expand(v);
+            }
+        });
+
+        return root;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    private void expand(View view) {
+
+        int id = view.getId();
+        switch (id) {
+            case R.id.cardviewWelcome:
+                if (mWelcomeDetails.getVisibility() == View.GONE) {
+                    TransitionManager.beginDelayedTransition(mWelcomeContainer);
+                    mWelcomeDetails.setVisibility(View.VISIBLE);
+                } else {
+                    TransitionManager.beginDelayedTransition(mWelcomeContainer);
+                    mWelcomeDetails.setVisibility(View.GONE);
+                }
+
+                break;
+
+            case R.id.cardviewHowto:
+                if (mHowToDetails.getVisibility() == View.GONE) {
+                    TransitionManager.beginDelayedTransition(mHowToContainer);
+                    mHowToDetails.setVisibility(View.VISIBLE);
+                }
+                else {
+                    TransitionManager.beginDelayedTransition(mHowToContainer);
+                    mHowToDetails.setVisibility(View.GONE);
+                }
+
+                break;
+
+            case R.id.cardviewAbout:
+                if(mAboutUsDetails.getVisibility()== View.GONE) {
+
+                    TransitionManager.beginDelayedTransition(mAboutContainer);
+                    mAboutUsDetails.setVisibility(View.VISIBLE);
+                }
+                else {
+                    TransitionManager.beginDelayedTransition(mAboutContainer);
+                    mAboutUsDetails.setVisibility(View.GONE);
+                }
+
+                break;
+
+            default: break;
+
+        }
     }
 }
+
+
