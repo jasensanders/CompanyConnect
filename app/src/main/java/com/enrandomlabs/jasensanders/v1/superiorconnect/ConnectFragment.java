@@ -1,9 +1,11 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +20,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ConnectFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    // Leaving names and types of parameters default for now.
+    // The fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    // Leaving names and types of parameters default for now.
     private String mParam1;
     private String mParam2;
 
@@ -41,7 +43,7 @@ public class ConnectFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment ConnectFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    // Leaving types and number of parameters default for now.
     public static ConnectFragment newInstance(String param1, String param2) {
         ConnectFragment fragment = new ConnectFragment();
         Bundle args = new Bundle();
@@ -64,13 +66,39 @@ public class ConnectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_connect, container, false);
+        View root = inflater.inflate(R.layout.fragment_connect, container, false);
+
+        //Setup ClickListeners
+        CardView noteCard = root.findViewById(R.id.cardviewNote);
+        noteCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed(MainActivity.NAV_EVENT_SEND_NOTE);
+            }
+        });
+
+        CardView ewasteCard = root.findViewById(R.id.cardviewEwaste);
+        ewasteCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed(MainActivity.NAV_EVENT_SEND_EWASTE);
+            }
+        });
+
+        CardView estimateCard = root.findViewById(R.id.cardviewEstimate);
+        estimateCard.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                onButtonPressed(MainActivity.NAV_EVENT_SEND_ESTIMATE);
+            }
+        });
+        return root;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+
+    public void onButtonPressed(final String navKey) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(navKey);
         }
     }
 
@@ -102,7 +130,14 @@ public class ConnectFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+
+        void onFragmentInteraction(final String navKey);
+    }
+
+    private void navigateTo(String navEvent){
+        if(getContext()!= null && navEvent != null) {
+            Intent messageIntent = new Intent(navEvent);
+            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(messageIntent);
+        }
     }
 }
