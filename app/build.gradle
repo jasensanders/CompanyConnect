@@ -25,16 +25,23 @@ android {
         it.buildConfigField 'String', 'SEND_EWASTE', SuperiorMailE_waste
 
     }
+
+    // This resolves a file issue while using the android sun.mail api
+    packagingOptions{
+
+        pickFirst 'META-INF/mimetypes.default'
+        pickFirst 'META-INF/mailcap.default'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.android.support:support-vector-drawable:27.1.1'
-    implementation 'com.sun.mail:android-mail:1.6.1'
-    implementation 'com.sun.mail:android-activation:1.6.1'
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
     testImplementation 'junit:junit:4.12'

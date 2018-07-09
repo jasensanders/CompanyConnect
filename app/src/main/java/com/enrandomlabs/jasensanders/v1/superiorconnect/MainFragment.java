@@ -20,23 +20,26 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class MainFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+    // General parameter arguments
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    // Default names and types of parameters
     private String mParam1;
     private String mParam2;
 
+    // CardViews
     private CardView mWelcomeCard;
     private CardView mHowtoCard;
     private CardView mAboutUsCard;
 
+    // Expansions for CardViews
     private TextView mWelcomeDetails;
     private TextView mHowToDetails;
     private TextView mAboutUsDetails;
 
+    // Container references for CardViews
     private LinearLayout mWelcomeContainer;
     private LinearLayout mHowToContainer;
     private LinearLayout mAboutContainer;
@@ -54,7 +57,7 @@ public class MainFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment MainFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    // General parameters that might be used in the future.
     public static MainFragment newInstance(String param1, String param2) {
         MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
@@ -76,7 +79,7 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
-        //Get references
+        // Get references
         mWelcomeCard = root.findViewById(R.id.cardviewWelcome);
         mHowtoCard = root.findViewById(R.id.cardviewHowto);
         mAboutUsCard = root.findViewById(R.id.cardviewAbout);
@@ -89,7 +92,7 @@ public class MainFragment extends Fragment {
         mHowToContainer = root.findViewById(R.id.howToContainer);
         mAboutContainer = root.findViewById(R.id.aboutContainer);
 
-        //Set Listeners
+        // Set OnClick Expand Listeners
         mWelcomeCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

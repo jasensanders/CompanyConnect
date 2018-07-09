@@ -24,4 +24,10 @@
 
     <string name="main_fragment_title_about_us_card">Who is Superior Janitorial?</string>
     <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a cleaning service located in the South Bay Area in San Jose, CA.</string>
+
+    <string name="note_fragment_text_title">Leave the Janitors a Note!</string>
+
+    <string name="ewaste_fragment_text_title">Request E-Waste Removal</string>
+
+    <string name="estimate_fragment_text_title">Request Estimate!</string>
     </resources>

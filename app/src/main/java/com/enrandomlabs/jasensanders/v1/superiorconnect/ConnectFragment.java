@@ -1,10 +1,8 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -134,10 +132,10 @@ public class ConnectFragment extends Fragment {
         void onFragmentInteraction(final String navKey);
     }
 
-    private void navigateTo(String navEvent){
-        if(getContext()!= null && navEvent != null) {
-            Intent messageIntent = new Intent(navEvent);
-            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(messageIntent);
-        }
-    }
+//    private void navigateTo(final String navEvent){
+//        if(getContext()!= null && navEvent != null) {
+//            Intent messageIntent = new Intent(navEvent);
+//            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(messageIntent);
+//        }
+//    }
 }

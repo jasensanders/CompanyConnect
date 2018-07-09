@@ -1,14 +1,11 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
-import android.content.BroadcastReceiver;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ConnectFragment.OnFragmentInteractionListener {
     private static final String CLASS_NAME = MainActivity.class.getSimpleName();
@@ -23,15 +20,15 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     public static final String CURRENT_FRAGMENT = "CURRENT_FRAGMENT_" + CLASS_NAME;
 
     //Message Receiver and Navigation Keys
-    public static final String NAV_EVENT_SEND_NOTE = "NAV_EVENT_NOTE_com.enrandomlabs.jasensanders.v1.superiorconnect";
-    public static final String NAV_EVENT_SEND_EWASTE = "NAV_EVENT_EWASTE_com.enrandomlabs.jasensanders.v1.superiorconnect" ;
-    public static final String NAV_EVENT_SEND_ESTIMATE = "NAV_EVENT_ESTIMATE_com.enrandomlabs.jasensanders.v1.superiorconnect";
-    public static final String NAV_EVENT_MAIN = "NAV_EVENT_MAIN_com.enrandomlabs.jasensanders.v1.superiorconnect";
-    public static final String NAV_EVENT_CONNECT = "NAV_EVENT_CONNECT_com.enrandomlabs.jasensanders.v1.superiorconnect";
-    public static final String NAV_EVENT_INFO = "NAV_EVENT_INFO_com.enrandomlabs.jasensanders.v1.superiorconnect";
+    public static final String NAV_EVENT_SEND_NOTE = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_NOTE";
+    public static final String NAV_EVENT_SEND_EWASTE = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_EWASTE" ;
+    public static final String NAV_EVENT_SEND_ESTIMATE = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_ESTIMATE";
+    public static final String NAV_EVENT_MAIN = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_MAIN";
+    public static final String NAV_EVENT_CONNECT = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_CONNECT";
+    public static final String NAV_EVENT_INFO = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_INFO";
 
-    //Receiver
-    private BroadcastReceiver mMessageReceiver;
+    ////Receiver
+    //private BroadcastReceiver mMessageReceiver;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -76,10 +73,10 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
 
 
         //Change font of the default title
-        int titleId = getResources().getIdentifier("action_bar_title", "id",
-                "android");
-        TextView titleTextView = (TextView) findViewById(titleId);
-        titleTextView.setTypeface(Typeface.SERIF);
+//        int titleId = getResources().getIdentifier("action_bar_title", "id",
+//                "android");
+//        TextView titleTextView = (TextView) findViewById(titleId);
+//        titleTextView.setTypeface(Typeface.SERIF);
 
         //Setup bottom navigation
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
 
     /** Fragment change process function
      * All fragment change happens through this function, both local and callback. */
-    private void onFragmentChange(String intentAction){
+    private void onFragmentChange(final String intentAction){
 
         if(intentAction != null) {
             switch (intentAction) {
