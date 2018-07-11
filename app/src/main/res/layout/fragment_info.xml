@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/activity_horizontal_margin">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,19 +32,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/phone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="@string/app_name"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/company_name"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:fontFamily="serif"
                     />
+                <View android:id="@+id/divider" style="@style/Divider" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="@string/app_name"
+                    android:text="@string/info_fragment_description"
                     />
             </LinearLayout>
 

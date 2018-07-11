@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/activity_horizontal_margin">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -39,11 +39,19 @@
                     android:adjustViewBounds="true"
                     android:src="@drawable/sj_skyline"/>
 
+                <TextClock
+                    android:id="@+id/textClock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="start" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:fontFamily="sans-serif"
                     android:text="@string/main_fragment_title_welcome_card"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
