@@ -27,7 +27,9 @@
     <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a cleaning service located in the South Bay Area in San Jose, CA.</string>
 
     <string name="note_fragment_text_title">Leave the Janitors a Note</string>
-
+    <string name="note_fragment_text_rules">1. Please Let us know the second that something is wrong.\n2. Please be specific.\n3.  Please read our policy page.\n4. All Notes must be submitted before 3:00pm for same day service.\n5. Remember to LABEL your TRASH that is not in a trash can.\n</string>
+    <string name="note_fragment_text_notice">Notice:</string>
+    <string name="note_fragment_text_policy_link">Policy Page Link</string>
     <string name="ewaste_fragment_text_title">Request E-Waste Removal</string>
 
     <string name="estimate_fragment_text_title">Request an Estimate</string>

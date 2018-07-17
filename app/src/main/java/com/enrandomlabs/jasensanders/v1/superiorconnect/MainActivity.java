@@ -1,11 +1,18 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements ConnectFragment.OnFragmentInteractionListener {
     private static final String CLASS_NAME = MainActivity.class.getSimpleName();
@@ -28,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     public static final String NAV_EVENT_INFO = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_INFO";
 
     ////Receiver
-    //private BroadcastReceiver mMessageReceiver;
+    private BroadcastReceiver mMessageReceiver;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -83,19 +90,24 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //Using Callbacks for navigation for now.
-        //registerMessageReceiver();
+        registerMessageReceiver();
     }
 
-//    /** MessageReceiver for Nav events */
-//    private class MessageReceiver extends BroadcastReceiver {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            String action = intent.getAction();
-//
-//            onFragmentChange(action);
-//
-//        }
-//    }
+    /** MessageReceiver for Nav events from SendMail */
+    private class MessageReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if(action.matches(SERVICE_EVENT_SEND)) {
+                String[] result = intent.getStringArrayExtra(SERVICE_EXTRA_RESPONSE);
+                String message = result[0];
+                Toast.makeText(getApplicationContext(), "Message sent: " + message, Toast.LENGTH_LONG ).show();
+                onFragmentChange(NAV_EVENT_CONNECT);
+            }
+
+        }
+    }
 
     /**This is the implementation of the interface declared in the
      * ConnectFragment.
@@ -163,37 +175,33 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
 
     }
 
-//    /** Register receiver and add all Nav filter triggers */
-//    private void registerMessageReceiver(){
-//
-//        //If there isn't a messageReceiver yet make one.
-//        if(mMessageReceiver == null) {
-//            mMessageReceiver = new MessageReceiver();
-//        }
-//
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(NAV_EVENT_MAIN);
-//        filter.addAction(NAV_EVENT_CONNECT);
-//        filter.addAction(NAV_EVENT_INFO);
-//        filter.addAction(NAV_EVENT_SEND_NOTE);
-//        filter.addAction(NAV_EVENT_SEND_EWASTE);
-//        filter.addAction(NAV_EVENT_SEND_ESTIMATE);
-//        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
-//
-//    }
-//
-//    /** Unregister receiver and log errors */
-//    private void unRegisterMessageReceiver(){
-//
-//        if(mMessageReceiver != null){
-//            try {
-//                LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
-//            }catch(Exception e){
-//
-//                Log.e(LOG_TAG, "messageReciever unregisterd already", e);
-//            }
-//        }
-//    }
+    /** Register receiver and add all Nav filter triggers */
+    private void registerMessageReceiver(){
+
+        //If there isn't a messageReceiver yet make one.
+        if(mMessageReceiver == null) {
+            mMessageReceiver = new MessageReceiver();
+        }
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(SERVICE_EVENT_SEND);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
+
+    }
+
+    /** Unregister receiver and log errors */
+    private void unRegisterMessageReceiver(){
+
+        if(mMessageReceiver != null){
+            try {
+                LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+            }catch(Exception e){
+
+                Log.e(LOG_TAG, "messageReciever unregisterd already", e);
+            }
+        }
+    }
 
     /** Save the current fragment for lifecycle events */
     @Override
@@ -210,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
      * unregister receiver onPause */
     @Override
     public void onPause() {
-        //unRegisterMessageReceiver();
+        unRegisterMessageReceiver();
         super.onPause();
     }
 
@@ -219,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     @Override
     public void onResume() {
         super.onResume();
-        //registerMessageReceiver();
+        registerMessageReceiver();
 
     }
 

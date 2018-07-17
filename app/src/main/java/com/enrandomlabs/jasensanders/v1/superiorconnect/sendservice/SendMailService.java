@@ -185,10 +185,12 @@ public class SendMailService extends IntentService {
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
     }
 
-    private String assembleMessage(String name, String announcement, String[] param2){
-        String message = name + announcement + "\n" + "Contact Requested: " + param2[0] + "\n"
-                + "Email: " + param2[1] + "\n" + "Telephone: " + param2[2] + "\n" + "Fax: " +
-                param2[3] + "\n" + "Message: " + "\n\n" + param2[4];
+    private String assembleMessage(String name, String announcement, String[] form_data){
+        String message = name + announcement + "\n" + "From Office: " + form_data[1] + "\n"
+                + "Contact Requested: " + form_data[5] + "\n" + "Email: " + form_data[2] + "\n"
+                + "Telephone: " + form_data[3] + "\n" + "Fax: " + form_data[6] + "\n"
+                + "Message: " + "\n\n" + form_data[4];
+
         return message;
     }
 }
