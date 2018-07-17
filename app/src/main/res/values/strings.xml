@@ -1,6 +1,7 @@
 <resources>
     <string name="company_name">Superior Janitorial Systems</string>
     <string name="app_name">Superior Janitorial Connect</string>
+
     <string name="title_home">Home</string>
     <string name="title_dashboard">Connect</string>
     <string name="title_notifications">Information</string>
@@ -26,13 +27,32 @@
     <string name="main_fragment_title_about_us_card">Who we are</string>
     <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a cleaning service located in the South Bay Area in San Jose, CA.</string>
 
+    <string name="form_label_contactRequested">Contact requested immediately</string>
+    <string name="form_hint_name">Name (Required)</string>
+    <string name="form_hint_officeName">Office Name (Required)</string>
+    <string name="form_hint_email">Email (Required)</string>
+    <string name="form_hint_phone">Phone (Required)</string>
+    <string name="form_hint_fax">FAX</string>
+    <string name="form_hint_message_note">Your Message: (Required)</string>
+    <string name="form_hint_message_ewaste">Description of Waste: (Required)</string>
+    <string name="form_hint_message_estimate">Description of office and size in SQFT. (Required)</string>
+    <string name="form_label_submitButton">Submit</string>
+
     <string name="note_fragment_text_title">Leave the Janitors a Note</string>
     <string name="note_fragment_text_rules">1. Please Let us know the second that something is wrong.\n2. Please be specific.\n3.  Please read our policy page.\n4. All Notes must be submitted before 3:00pm for same day service.\n5. Remember to LABEL your TRASH that is not in a trash can.\n</string>
     <string name="note_fragment_text_notice">Notice:</string>
     <string name="note_fragment_text_policy_link">Policy Page Link</string>
+
+
     <string name="ewaste_fragment_text_title">Request E-Waste Removal</string>
+    <string name="ewaste_fragment_text_restrictions">Restrictions:</string>
+    <string name="ewaste_fragment_text_rules">1. You must make your request 24 hours in advance.\n2. Larger items like free standing copiers require an appointment.\n3. All itmes must be labled E-Waste.\n4. We do not take larger items like refrigerators\n\n
+    We do not take: CFLs, Fluorescent tubes, Non-prescription or prescription drugs and Hazardous Waste.\n\nWe do take: All office electronics, home electronics, anything computer related, small kitchen appliances, batteries.</string>
+
 
     <string name="estimate_fragment_text_title">Request an Estimate</string>
+    <string name="estimate_fragment_text_welcome">Welcome to Superior Janitorial Systems !</string>
+    <string name="estimate_fragment_text_description">\nPlease fill out the form below to schedule you free estimate.\n\nWe will contact you promptly to confirm the date and time of your walk through.\n</string>
 
-    <string name="info_fragment_description">Superior Janitorial Systems\n4858 Tilden Dr.\nSan Jose, CA 95124\n(408)377-8720\ninfo@superiorjanitorialsystems.com</string>
+    <string name="info_fragment_description">Superior Janitorial Systems\n4858 Tilden Dr.\nSan Jose, CA 95124\n(408)377\u20148720\ninfo@superiorjanitorialsystems.com</string>
     </resources>

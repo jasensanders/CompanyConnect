@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EstimateFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/estimate_fragment_text_title" />
+        android:layout_height="wrap_content"
+        tools:context=".NoteFragment">
 
-</FrameLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="56dp"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/contact_form_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/estimate_fragment_text_title"
+                android:textSize="25sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/estimate_fragment_text_welcome"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/estimate_fragment_text_description"/>
+
+
+            <CheckBox
+                android:id="@+id/contact_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/form_label_contactRequested"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/form_hint_name"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/office_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/form_hint_officeName"
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/form_hint_email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/form_hint_phone"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/fax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/form_hint_fax"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:hint="@string/form_hint_message_estimate"
+                android:fitsSystemWindows="true"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp"
+                android:imeOptions="actionDone"/>
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorPrimaryDark"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="@string/form_label_submitButton"
+                android:textColor="#fff"
+                />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

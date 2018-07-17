@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginBottom="56dp"
             android:padding="16dp">
 
             <TextView
@@ -51,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Contact requested immediately"
+                android:text="@string/form_label_contactRequested"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
             <EditText
@@ -59,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Name (Required)"
+                android:hint="@string/form_hint_name"
                 android:inputType="textPersonName"
                 android:imeOptions="actionNext"/>
 
@@ -67,7 +68,7 @@
                 android:id="@+id/office_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Office Name (Required)"
+                android:hint="@string/form_hint_officeName"
                 android:inputType="textNoSuggestions"
                 android:imeOptions="actionNext"/>
 
@@ -77,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:hint="Email (Required)"
+                android:hint="@string/form_hint_email"
                 android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"/>
 
@@ -86,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Phone (Required)"
+                android:hint="@string/form_hint_phone"
                 android:inputType="phone"
                 android:imeOptions="actionNext"/>
 
@@ -94,7 +95,7 @@
                 android:id="@+id/fax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="FAX"
+                android:hint="@string/form_hint_fax"
                 android:inputType="phone"
                 android:imeOptions="actionNext"/>
 
@@ -105,7 +106,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:gravity="top"
-                android:hint="Your Message (Required)"
+                android:hint="@string/form_hint_message_note"
                 android:fitsSystemWindows="true"
                 android:inputType="textMultiLine"
                 android:singleLine="false"
@@ -120,9 +121,9 @@
                 android:background="@color/colorPrimaryDark"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
-                android:text="Submit"
+                android:text="@string/form_label_submitButton"
                 android:textColor="#fff"
-                android:layout_marginBottom="56dp"/>
+                />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
