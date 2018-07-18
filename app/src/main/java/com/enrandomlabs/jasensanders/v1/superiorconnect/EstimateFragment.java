@@ -28,7 +28,7 @@ public class EstimateFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String[] REQ_FORM_LABELS = new String[]{"name", "office name", "email", "phone", "message"};
-    private static final String SUPERIOR_PLAN = "Regular Service Plan: ";
+    private static final String SUPERIOR_PLAN = "Regular Service Plan: \n";
 
     // Default names and types of parameters
     private String mParam1;
