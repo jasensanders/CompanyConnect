@@ -10,6 +10,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
         //Setup correct fragment
         if(savedInstanceState != null){
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
 
-            if(action.matches(SERVICE_EVENT_SEND)) {
+            if(action != null && action.matches(SERVICE_EVENT_SEND)) {
                 String[] result = intent.getStringArrayExtra(SERVICE_EXTRA_RESPONSE);
                 String message = result[0];
                 Toast.makeText(getApplicationContext(), "Message sent: " + message, Toast.LENGTH_LONG ).show();
