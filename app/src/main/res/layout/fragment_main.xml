@@ -35,9 +35,10 @@
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/sj_skyline"/>
+                    android:src="@drawable/sj_skyline"
+                    android:scaleType="centerCrop"/>
 
                 <TextClock
                     android:id="@+id/textClock"
@@ -86,6 +87,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/typewriter"
+                    android:scaleType="centerCrop"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,6 +132,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/shoes"
+                    android:scaleType="centerCrop"/>
 
                 <TextView
                     android:layout_width="wrap_content"

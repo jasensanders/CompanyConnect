@@ -19,13 +19,15 @@
     <string name="connect_fragment_button_e_waste_request_restrictions">Some limitations apply.</string>
 
     <string name="main_fragment_title_welcome_card">Connect with us</string>
-    <string name="main_fragment_text_welcome_card">At Superior Janitorial Systems we pride ourselves on</string>
+    <string name="main_fragment_text_welcome_card">At Superior Janitorial Systems we pride ourselves on being the most connected janitorial service in the bay area.  You can send us a message 24/7.  This app helps make that happen.
+    Tap "Using the app" to see how it works.</string>
 
     <string name="main_fragment_title_howto_card">Using the App</string>
-    <string name="main_fragment_text_howto_card">This app is primarily for connecting with us</string>
+    <string name="main_fragment_text_howto_card">This app is used for our clients to connect with us on the go. Simply tap the connect button at the bottom and then select what type of message you want to send.
+    Not a client yet? Just tap the Request Estimate card. Need to leave us a note? Tap the Leave a Note for Janitors card.  Its that easy.</string>
 
     <string name="main_fragment_title_about_us_card">Who we are</string>
-    <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a cleaning service located in the South Bay Area in San Jose, CA.</string>
+    <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a commercial cleaning service located in the South Bay Area in San Jose, CA.</string>
 
     <string name="form_label_contactRequested">Contact requested immediately</string>
     <string name="form_hint_name">Name (Required)</string>
