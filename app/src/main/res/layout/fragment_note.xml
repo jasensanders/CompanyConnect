@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +13,8 @@
         android:layout_height="wrap_content"
         tools:context=".NoteFragment">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -25,21 +29,21 @@
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/layout_min_grid_spacing"
                 android:text="@string/note_fragment_text_title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                 />
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/note_fragment_text_notice"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                 />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:padding="@dimen/activity_horizontal_margin"
                 android:text="@string/note_fragment_text_rules"/>
+
             <TextView
                 android:id="@+id/policy_link"
                 android:layout_width="match_parent"
@@ -125,9 +129,10 @@
                 android:paddingLeft="@dimen/form_submit_button_padding"
                 android:paddingRight="@dimen/form_submit_button_padding"
                 android:text="@string/form_label_submitButton"
-                android:textColor="@color/primaryWhite"
-                />
+                android:textColor="@color/primaryWhite"/>
+
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
+
 </ScrollView>

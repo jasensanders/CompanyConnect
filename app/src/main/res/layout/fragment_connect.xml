@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,14 +8,14 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/activity_horizontal_margin">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/connectScreenLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ConnectFragment">
-
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardviewNote"
@@ -24,8 +25,8 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,14 +58,16 @@
                         android:text="@string/connect_fragment_button_leave_note"
                         android:textAllCaps="false"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                        android:textStyle="italic" />
+                        android:textStyle="italic"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:text="@string/connect_fragment_button_leave_note_restrictions" />
+                        android:text="@string/connect_fragment_button_leave_note_restrictions"/>
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -78,8 +81,8 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,13 +112,16 @@
                         android:text="@string/connect_fragment_button_e_waste_request"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                         android:textStyle="italic" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/activity_horizontal_margin"
                         android:text="@string/connect_fragment_button_e_waste_request_restrictions"
                         />
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -129,8 +135,8 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,15 +166,19 @@
                         android:text="@string/connect_fragment_button_estimate_request"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                         android:textStyle="italic" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:text="@string/connect_fragment_button_estimate_request_subtext"
-                        />
+                        android:text="@string/connect_fragment_button_estimate_request_subtext"/>
+
                 </LinearLayout>
+
             </LinearLayout>
+
         </android.support.v7.widget.CardView>
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

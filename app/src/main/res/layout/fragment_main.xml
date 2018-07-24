@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,14 +8,14 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/activity_horizontal_margin">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/mainScreenLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainFragment">
-
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardviewWelcome"
@@ -24,14 +25,14 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:id="@+id/welcomeContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/card_image_height"
@@ -64,6 +65,7 @@
                     android:text="@string/main_fragment_text_welcome_card"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:visibility="gone"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -77,8 +79,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:id="@+id/howToContainer"
@@ -99,8 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:text="@string/main_fragment_title_howto_card"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <TextView
                     android:id="@+id/cardviewHowtoDetails"
@@ -110,6 +110,7 @@
                     android:text="@string/main_fragment_text_howto_card"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:visibility="gone"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -123,14 +124,14 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:id="@+id/aboutContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/card_image_height"
@@ -144,8 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:text="@string/main_fragment_title_about_us_card"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
                 <TextView
                     android:id="@+id/cardviewAboutDetails"
@@ -155,8 +155,11 @@
                     android:text="@string/main_fragment_text_about_us_card"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:visibility="gone"/>
+
             </LinearLayout>
+
         </android.support.v7.widget.CardView>
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

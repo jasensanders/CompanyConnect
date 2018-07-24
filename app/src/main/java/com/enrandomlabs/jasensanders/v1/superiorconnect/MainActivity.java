@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     public static final String NAV_EVENT_CONNECT = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_CONNECT";
     public static final String NAV_EVENT_INFO = "com.enrandomlabs.jasensanders.v1.superiorconnect/nav/NAV_EVENT_INFO";
 
-    ////Receiver
+    //Receiver
     private BroadcastReceiver mMessageReceiver;
 
+    //Nav View item selected listener
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -65,10 +66,12 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Setup toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
-        //Setup correct fragment
+        // Restore current fragment, if any
         if(savedInstanceState != null){
 
             //If restoring from previous, swap to current fragment
@@ -80,13 +83,6 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
             //Otherwise Navigate to MainFragment
             onFragmentChange(NAV_EVENT_MAIN);
         }
-
-
-        //Change font of the default title
-//        int titleId = getResources().getIdentifier("action_bar_title", "id",
-//                "android");
-//        TextView titleTextView = (TextView) findViewById(titleId);
-//        titleTextView.setTypeface(Typeface.SERIF);
 
         //Setup bottom navigation
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -178,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
 
     }
 
-    /** Register receiver and add all Nav filter triggers */
+    /** Register receiver and add message filter trigger */
     private void registerMessageReceiver(){
 
         //If there isn't a messageReceiver yet make one.

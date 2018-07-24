@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +8,8 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/activity_horizontal_margin">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/infoScreenLayout"
@@ -23,13 +25,13 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -44,8 +46,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/company_name"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                    android:fontFamily="serif"
-                    />
+                    android:fontFamily="serif" />
 
                 <View android:id="@+id/divider" style="@style/Divider" />
 
@@ -53,8 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="@string/info_fragment_address"
-                    />
+                    android:text="@string/info_fragment_address" />
 
             </LinearLayout>
 

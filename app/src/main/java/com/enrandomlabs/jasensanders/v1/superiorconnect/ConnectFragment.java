@@ -2,6 +2,7 @@ package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -61,7 +62,7 @@ public class ConnectFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_connect, container, false);
@@ -132,10 +133,4 @@ public class ConnectFragment extends Fragment {
         void onFragmentInteraction(final String navKey);
     }
 
-//    private void navigateTo(final String navEvent){
-//        if(getContext()!= null && navEvent != null) {
-//            Intent messageIntent = new Intent(navEvent);
-//            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(messageIntent);
-//        }
-//    }
 }
