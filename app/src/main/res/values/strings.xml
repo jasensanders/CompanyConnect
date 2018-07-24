@@ -1,23 +1,15 @@
 <resources>
-    <string name="company_name">Superior Janitorial Systems</string>
-    <string name="app_name">Superior Janitorial Connect</string>
 
+    <!-- App Defaults -->
+    <string name="company_name">Superior Janitorial Systems</string>
+    <string name="app_name">Superior Connect</string>
+
+    <!-- Nav Bar Strings-->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Connect</string>
     <string name="title_notifications">Information</string>
 
-    <string name="about_superior_janitorial_fragment_title">About Superior Janitorial</string>
-    <string name="about_superior_janitorial_fragment_text">Superior Janitorial Started</string>
-
-    <string name="connect_fragment_button_leave_note">Leave a Note for Janitors</string>
-    <string name="connect_fragment_button_leave_note_restrictions">Some limitations apply.</string>
-
-    <string name="connect_fragment_button_estimate_request">Request Estimate</string>
-    <string name="connect_fragment_button_estimate_request_subtext">Select the services that are right for you!</string>
-
-    <string name="connect_fragment_button_e_waste_request">E-Waste Removal Request</string>
-    <string name="connect_fragment_button_e_waste_request_restrictions">Some limitations apply.</string>
-
+    <!-- Main Fragment Strings-->
     <string name="main_fragment_title_welcome_card">Connect with us</string>
     <string name="main_fragment_text_welcome_card">At Superior Janitorial Systems we pride ourselves on being the most connected janitorial service in the bay area.  You can send us a message 24/7.  This app helps make that happen.
     Tap "Using the app" to see how it works.</string>
@@ -29,6 +21,20 @@
     <string name="main_fragment_title_about_us_card">Who we are</string>
     <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a commercial cleaning service located in the South Bay Area in San Jose, CA.</string>
 
+    <!-- Connect Fragment Strings -->
+    <string name="connect_fragment_button_leave_note">Leave a Note for Janitors</string>
+    <string name="connect_fragment_button_leave_note_restrictions">Some limitations apply.</string>
+
+    <string name="connect_fragment_button_estimate_request">Request Estimate</string>
+    <string name="connect_fragment_button_estimate_request_subtext">Select the services that are right for you!</string>
+
+    <string name="connect_fragment_button_e_waste_request">E-Waste Removal Request</string>
+    <string name="connect_fragment_button_e_waste_request_restrictions">Some limitations apply.</string>
+
+    <!-- Info Fragment Strings -->
+    <string name="info_fragment_address">Superior Janitorial Systems\n4858 Tilden Dr.\nSan Jose, CA 95124\n(408)377\u20148720\ninfo@superiorjanitorialsystems.com</string>
+
+    <!-- Message Form Strings-->
     <string name="form_label_contactRequested">Contact requested immediately</string>
     <string name="form_hint_name">Name (Required)</string>
     <string name="form_hint_officeName">Office Name (Required)</string>
@@ -40,21 +46,33 @@
     <string name="form_hint_message_estimate">Description of office and size in SQFT. (Required)</string>
     <string name="form_label_submitButton">Submit</string>
 
+    <!-- Note Fragment Strings-->
     <string name="note_fragment_text_title">Leave the Janitors a Note</string>
     <string name="note_fragment_text_rules">1. Please Let us know the second that something is wrong.\n2. Please be specific.\n3.  Please read our policy page.\n4. All Notes must be submitted before 3:00pm for same day service.\n5. Remember to LABEL your TRASH that is not in a trash can.\n</string>
     <string name="note_fragment_text_notice">Notice:</string>
     <string name="note_fragment_text_policy_link">Policy Page Link</string>
 
-
+    <!-- Ewaste Fragment Strings-->
     <string name="ewaste_fragment_text_title">Request E-Waste Removal</string>
     <string name="ewaste_fragment_text_restrictions">Restrictions:</string>
-    <string name="ewaste_fragment_text_rules">1. You must make your request 24 hours in advance.\n2. Larger items like free standing copiers require an appointment.\n3. All itmes must be labled E-Waste.\n4. We do not take larger items like refrigerators\n\n
+    <string name="ewaste_fragment_text_rules">1. You must make your request 24 hours in advance.\n2. Larger items like free standing copiers require an appointment.\n3. All items must be labeled E-Waste.\n4. We do not take larger items like refrigerators\n\n
     We do not take: CFLs, Fluorescent tubes, Non-prescription or prescription drugs and Hazardous Waste.\n\nWe do take: All office electronics, home electronics, anything computer related, small kitchen appliances, batteries.</string>
 
-
+    <!-- Estimate Fragment Strings-->
     <string name="estimate_fragment_text_title">Request an Estimate</string>
     <string name="estimate_fragment_text_welcome">Welcome to Superior Janitorial Systems !</string>
     <string name="estimate_fragment_text_description">\nPlease fill out the form below to schedule you free estimate.\n\nWe will contact you promptly to confirm the date and time of your walk through.\n</string>
 
-    <string name="info_fragment_description">Superior Janitorial Systems\n4858 Tilden Dr.\nSan Jose, CA 95124\n(408)377\u20148720\ninfo@superiorjanitorialsystems.com</string>
+    <!-- A11y Strings -->
+    <string name="welcome_card_description">Welcome. Bay area panorama.</string>
+    <string name="howto_card_description">How to use app. Typewriter.</string>
+    <string name="aboutus_card_description">Contact Information. Feet graphic.</string>
+
+    <string name="note_icon_description">Note icon.</string>
+    <string name="ewaste_icon_description">Eee Waste icon.</string>
+    <string name="estimate_icon_description">Estimate icon.</string>
+
+    <string name="contact_card_description">Contact us. Telephone.</string>
+
+
     </resources>

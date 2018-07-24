@@ -13,13 +13,12 @@
         android:id="@+id/connectScreenLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainFragment">
+        tools:context=".ConnectFragment">
 
 
         <android.support.v7.widget.CardView
-            xmlns:card="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cardviewNote"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -34,10 +33,11 @@
                 android:background="@color/cardViewNote">
 
                 <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_width="@dimen/card_icon_size"
+                    android:layout_height="@dimen/card_icon_size"
+                    android:layout_margin="@dimen/layout_horizontal_spacing"
                     android:src="@drawable/note_outline"
+                    android:contentDescription="@string/note_icon_description"
                     android:visibility="visible"
                     android:layout_gravity="center_vertical"/>
 
@@ -70,10 +70,9 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            xmlns:card="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cardviewEwaste"
             app:layout_constraintTop_toBottomOf="@id/cardviewNote"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -88,10 +87,11 @@
                 android:background="@color/cardViewEwaste">
 
                 <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_width="@dimen/card_icon_size"
+                    android:layout_height="@dimen/card_icon_size"
+                    android:layout_margin="@dimen/layout_horizontal_spacing"
                     android:src="@drawable/deleteoutline"
+                    android:contentDescription="@string/ewaste_icon_description"
                     android:visibility="visible"
                     android:layout_gravity="center_vertical"/>
 
@@ -121,10 +121,9 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            xmlns:card="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cardviewEstimate"
             app:layout_constraintTop_toBottomOf="@id/cardviewEwaste"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -139,10 +138,11 @@
                 android:background="@color/cardViewEstimate">
 
                 <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:layout_width="@dimen/card_icon_size"
+                    android:layout_height="@dimen/card_icon_size"
+                    android:layout_margin="@dimen/layout_horizontal_spacing"
                     android:src="@drawable/file_document_outline"
+                    android:contentDescription="@string/estimate_icon_description"
                     android:visibility="visible"
                     android:layout_gravity="center_vertical"/>
 
