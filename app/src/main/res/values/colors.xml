@@ -6,7 +6,7 @@
     <color name="colorAccent">#5E1B5A</color>
     <color name="colorPrimaryLight">#4C8C4A</color>
     <color name="colorTextViewError">#FF7171</color>
-    <color name="cardViewBackground">#FFFFAA</color>
+    <color name="cardViewCall">#BEC2C1</color>
     <color name="cardViewNote">#FFFFA5</color>
     <color name="cardViewEwaste">#AED581</color>
     <color name="cardViewEstimate">#90CAF9</color>

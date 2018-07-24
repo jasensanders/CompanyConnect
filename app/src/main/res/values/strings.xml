@@ -16,10 +16,10 @@
 
     <string name="main_fragment_title_howto_card">Using the App</string>
     <string name="main_fragment_text_howto_card">This app is used for our clients to connect with us on the go. Simply tap the connect button at the bottom and then select what type of message you want to send.
-    Not a client yet? Just tap the Request Estimate card. Need to leave us a note? Tap the Leave a Note for Janitors card.  Its that easy.</string>
+    Not a client yet? Just tap the Request Estimate card. Need to leave us a note? Tap the Leave a Note for Janitors card.  Its that easy!</string>
 
     <string name="main_fragment_title_about_us_card">Who we are</string>
-    <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a commercial cleaning service located in the South Bay Area in San Jose, CA.</string>
+    <string name="main_fragment_text_about_us_card">Superior Janitorial Systems is a commercial cleaning service located near the South Bay Area in San Jose, CA.</string>
 
     <!-- Connect Fragment Strings -->
     <string name="connect_fragment_button_leave_note">Leave a Note for Janitors</string>
@@ -30,6 +30,8 @@
 
     <string name="connect_fragment_button_e_waste_request">E-Waste Removal Request</string>
     <string name="connect_fragment_button_e_waste_request_restrictions">Some limitations apply.</string>
+
+    <string name="connect_fragment_button_call_us">Call Superior Janitorial</string>
 
     <!-- Info Fragment Strings -->
     <string name="info_fragment_address">Superior Janitorial Systems\n4858 Tilden Dr.\nSan Jose, CA 95124\n(408)377\u20148720\ninfo@superiorjanitorialsystems.com</string>
@@ -71,6 +73,7 @@
     <string name="note_icon_description">Note icon.</string>
     <string name="ewaste_icon_description">Eee Waste icon.</string>
     <string name="estimate_icon_description">Estimate icon.</string>
+    <string name="call_icon_description">Call icon.</string>
 
     <string name="contact_card_description">Contact us. Telephone.</string>
 

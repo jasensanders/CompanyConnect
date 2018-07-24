@@ -1,6 +1,8 @@
 package com.enrandomlabs.jasensanders.v1.superiorconnect;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -89,6 +91,16 @@ public class ConnectFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 onButtonPressed(MainActivity.NAV_EVENT_SEND_ESTIMATE);
+            }
+        });
+
+        CardView phoneCard = root.findViewById(R.id.cardviewCall);
+        phoneCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:4083778720"));
+                startActivity(callIntent);
             }
         });
         return root;

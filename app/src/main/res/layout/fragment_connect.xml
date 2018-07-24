@@ -179,6 +179,53 @@
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardviewCall"
+            app:layout_constraintTop_toBottomOf="@id/cardviewEstimate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/cardViewCall">
+
+                <ImageView
+                    android:layout_width="@dimen/card_icon_size"
+                    android:layout_height="@dimen/card_icon_size"
+                    android:layout_margin="@dimen/layout_horizontal_spacing"
+                    android:src="@drawable/phone_call"
+                    android:contentDescription="@string/call_icon_description"
+                    android:visibility="visible"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/cardViewCall">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:text="@string/connect_fragment_button_call_us"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
