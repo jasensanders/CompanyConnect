@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    // Reference Keys and add to signing config.
+    def alias = PlayStoreAlias
+    def password = KeyPassowrd
+    def storeFilePath = storeFilePath
+    def StorePassword = StorePassword
+    signingConfigs {
+        ReleaseConfig {
+            keyAlias = alias
+            keyPassword = password
+            storeFile = file(storeFilePath)
+            storePassword = StorePassword
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.enrandomlabs.jasensanders.v1.superiorconnect"
@@ -14,8 +28,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.ReleaseConfig
+            buildConfigField "boolean", "DEBUG_BUILD", "false"
+        }
+
+        debug {
+            jniDebuggable true
+            buildConfigField "boolean", "DEBUG_BUILD", "true"
         }
     }
+
     buildTypes.each {
         it.buildConfigField 'String', 'SEND_MAIL_SERVER', SuperiorMailServer
         it.buildConfigField 'String', 'SEND_MAIL_USERNAME', SuperiorMailUsername
@@ -23,6 +45,7 @@ android {
         it.buildConfigField 'String', 'SEND_NOTE', SuperiorMailNote
         it.buildConfigField 'String', 'SEND_ESTIMATE', SuperiorMailEstimate
         it.buildConfigField 'String', 'SEND_EWASTE', SuperiorMailE_waste
+
 
     }
 
