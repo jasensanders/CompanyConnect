@@ -7,16 +7,23 @@ android {
     def password = KeyPassowrd
     def storeFilePath = storeFilePath
     def StorePassword = StorePassword
+
+    // Signing config
     signingConfigs {
+
         ReleaseConfig {
+
             keyAlias = alias
             keyPassword = password
             storeFile = file(storeFilePath)
             storePassword = StorePassword
         }
     }
+
     compileSdkVersion 27
+
     defaultConfig {
+
         applicationId "com.enrandomlabs.jasensanders.v1.superiorconnect"
         minSdkVersion 19
         targetSdkVersion 27
@@ -25,27 +32,33 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
         release {
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.ReleaseConfig
             buildConfigField "boolean", "DEBUG_BUILD", "false"
+
         }
 
         debug {
+
             jniDebuggable true
             buildConfigField "boolean", "DEBUG_BUILD", "true"
+
         }
     }
 
     buildTypes.each {
+
+        // API keys references
         it.buildConfigField 'String', 'SEND_MAIL_SERVER', SuperiorMailServer
         it.buildConfigField 'String', 'SEND_MAIL_USERNAME', SuperiorMailUsername
         it.buildConfigField 'String', 'SEND_MAIL_PW', SuperiorMailPW
         it.buildConfigField 'String', 'SEND_NOTE', SuperiorMailNote
         it.buildConfigField 'String', 'SEND_ESTIMATE', SuperiorMailEstimate
         it.buildConfigField 'String', 'SEND_EWASTE', SuperiorMailE_waste
-
 
     }
 
@@ -54,6 +67,7 @@ android {
 
         pickFirst 'META-INF/mimetypes.default'
         pickFirst 'META-INF/mailcap.default'
+
     }
 }
 
