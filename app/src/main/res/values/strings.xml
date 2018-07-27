@@ -77,5 +77,9 @@
 
     <string name="contact_card_description">Contact us. Telephone.</string>
 
+    <!-- Permission Strings -->
+    <string name="permission_phone_rationale">Access to the Phone is need to call Superior Janitorial.</string>
+    <string name="permission_ok">OK</string>
+
 
     </resources>

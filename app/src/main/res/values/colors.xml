@@ -3,7 +3,7 @@
     <color name="colorPrimary">#1B5E20</color>
     <color name="primaryWhite">#ffffff</color>
     <color name="colorPrimaryDark">#003300</color>
-    <color name="colorAccent">#5E1B5A</color>
+    <color name="colorAccent">#008e8e</color>
     <color name="colorPrimaryLight">#4C8C4A</color>
     <color name="colorTextViewError">#FF7171</color>
     <color name="cardViewCall">#BEC2C1</color>
