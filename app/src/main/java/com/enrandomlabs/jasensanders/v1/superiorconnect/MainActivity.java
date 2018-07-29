@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
         }
     }
 
-    /** Requesting permissions if not already granted*/
+    /** Request permissions if not already granted*/
     private void checkPermissions(){
         mCALL_PERMISSION = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CALL_PHONE)
@@ -230,17 +230,18 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
         if (!mCALL_PERMISSION) {
 
             // Permission is not granted
-            // Should we show an explanation? If not then request permission
+            // Should we show an explanation? (Based on API Level) If not then request permission
             if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CALL_PHONE)) {
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
+
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.CALL_PHONE},
                         MY_PERMISSIONS_REQUEST_CALL_PHONE);
 
             } else {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
 
                 // Explanation is needed; Explain, then request permission.
                 final Activity thisActivity = this;
@@ -304,6 +305,7 @@ public class MainActivity extends AppCompatActivity implements ConnectFragment.O
                     mCALL_PERMISSION = true;
 
                 }
+                break;
             }
 
         }

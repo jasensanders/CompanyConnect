@@ -97,6 +97,7 @@ public class ConnectFragment extends Fragment {
             }
         });
 
+        // Toggle PhoneCard clickListener/Visibility based on permissions.
         CardView phoneCard = root.findViewById(R.id.cardviewCall);
         if(mCallPermission) {
             phoneCard.setVisibility(View.VISIBLE);
